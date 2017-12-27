@@ -1,0 +1,8 @@
+{
+    "days_to_fetch": 7,
+    "google_sheet_id": "",
+    "google_sheet_name": "",
+    "plaid_access_tokens": [
+        "access-development-XXXX"
+    ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "mint-lite",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Lightweight app to manage financial transactions",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "refresh": "node refresh.js"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "googleapis": "^23.0.0",
+    "moment": "^2.20.1",
+    "plaid": "^2.2.0"
+  },
+  "engines": {
+    "node": "9.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abhishek0988/mint-lite"
+  }
+}
