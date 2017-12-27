@@ -10,8 +10,6 @@ var google_client = require('./google/google_client.js');
 var plaid_client = require('./plaid/plaid_client.js');
 let sheets = google.sheets('v4');
 
-uploadLatestTransactions();
-
 async function uploadLatestTransactions() {
     // get latest transanctions from Plaid
     try {
@@ -53,23 +51,6 @@ async function uploadLatestTransactions() {
     }
 
     return newTransactions.length;
-}
-
-async function clearTransactions() {
-    return new Promise(async function (resolve, reject) {
-        sheets.spreadsheets.values.clear({
-            auth: google_client,
-            spreadsheetId: config.google_sheet_id,
-            range: `2:400000`, // max number of rows       
-        }, function (e, response) {
-            if (e) {
-                reject(e);
-            }
-            else {
-                resolve(response.clearedRange);
-            }
-        });
-    });
 }
 
 async function getNewTransactions() {
@@ -190,3 +171,5 @@ async function sortTransactions() {
         });
     });
 }
+
+module.exports = uploadLatestTransactions;

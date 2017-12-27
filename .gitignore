@@ -1,5 +1,5 @@
 node_modules/
 secrets/
-config.json
 yarn*
 instructions.txt
+config.json

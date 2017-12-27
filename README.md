@@ -1,5 +1,5 @@
-# mint-lite
-This is a lightweight app Nikki and I use to manage financial transactions. It uses [Plaid](plaid.com) to fetch transactions and stores them in a private [Google Sheet](sheets.google.com) for tracking, etc.
+# mintlite
+This is a lightweight app Nikki and I use to manage our finances. It uses [Plaid](plaid.com) to fetch transactions from all our accounts and stores them in a private [Google Sheet](sheets.google.com) for tracking, etc.
 
 ## Components
 1. A private Google Sheet where the transactions are stored (specified in `config.json`)
