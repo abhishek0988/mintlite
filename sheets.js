@@ -76,9 +76,32 @@ async function sortRows(startRowIndex, columnIndex, order) {
     });
 }
 
+async function setCellValue(cell, val) {
+    return new Promise(async function (resolve, reject) {
+        sheets.spreadsheets.values.update({
+            auth: google_client,
+            spreadsheetId: config.google_sheet_id,
+            range: cell,
+            valueInputOption: 'USER_ENTERED',
+            resource: {
+                range: cell,
+                values: [[val]]
+            }
+        }, function (e, response) {
+            if (e) {
+                reject(e);
+            }
+            else {
+                resolve(response.values || []);
+            }
+        });
+    });
+}
+
 module.exports = {
-    MAX_ROWS: 400000,
+    MAX_ROWS: 50000,
     getRows: getRows,
     appendRows: appendRows,
-    sortRows: sortRows
+    sortRows: sortRows,
+    setCellValue: setCellValue
 }

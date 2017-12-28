@@ -101,6 +101,8 @@ function getNewTransaction(plaidTransaction) {
         "name": util.toTitleCase(plaidTransaction.name),
         "category_primary": plaidTransaction.category ? plaidTransaction.category[0] : '',
         "category_secondary": plaidTransaction.category ? plaidTransaction.category[1] : '',
-        "amount": plaidTransaction.amount
+        "amount": plaidTransaction.amount,
+        "verified": undefined,
+        "reimbursable": undefined
     };
 }
