@@ -64,7 +64,8 @@ async function getNewTransactions() {
                     { count: 250, offset: 0 }
                 );
             } catch (e) {
-                reject(e);
+                console.log(`ERROR: Couldn't fetch transactions with access token: ${config.plaid_access_tokens[i]} with error: ${JSON.stringify(e)}`)
+                continue;
             }
 
             // set account names
