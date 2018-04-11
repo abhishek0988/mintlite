@@ -24,7 +24,7 @@ async function uploadLatestTransactions() {
 
     // filter out transactions we already have
     try {
-        var oldTransactions = await transaction_db.getLastDaysTransactions(30);
+        var oldTransactions = await transaction_db.getLastDaysTransactions(config.days_to_fetch);
         var oldTransactionsIds = oldTransactions.map(m => m.id);
         console.log(`Fetched ${oldTransactionsIds.length} old transactions from GSheets.`);
     } catch (e) {
