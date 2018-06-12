@@ -6,10 +6,10 @@ var moment = require('moment');
 var sheets_db = require('./sheets.js');
 
 var ID_COL = 0;
-var DATE_COL = 3;
+var DATE_COL = 2;
 var FIRST_ROW_INDEX = 2;
-var VERIFY_COL = 'I';
-var REIMBURSE_COL = 'J';
+var VERIFY_COL = 'H';
+var REIMBURSE_COL = 'I';
 
 async function getAllTransactions() {
     var rows = await sheets_db.getRows(FIRST_ROW_INDEX, sheets_db.MAX_ROWS);
@@ -29,12 +29,6 @@ async function getAllTransactions() {
         return t;
     });
     return allTransactions;
-}
-
-async function getLastDaysTransactions(days) {
-    var start = moment().subtract(days, 'days').format('YYYY-MM-DD');
-    var allTransactions = await getAllTransactions();
-    return allTransactions.filter(t => moment(t.date).isSameOrAfter(start));
 }
 
 async function getUnverifiedTransactions(days) {
@@ -85,6 +79,6 @@ function getTransactionRowNumber(index) {
 }
 
 module.exports = {
-    getLastDaysTransactions: getLastDaysTransactions,
+    getAllTransactions: getAllTransactions,
     addTransactions: addTransactions
 }

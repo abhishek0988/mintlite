@@ -24,14 +24,14 @@ async function uploadLatestTransactions() {
 
     // filter out transactions we already have
     try {
-        var oldTransactions = await transaction_db.getLastDaysTransactions(config.days_to_fetch);
+        var oldTransactions = await transaction_db.getAllTransactions();
         var oldTransactionsIds = oldTransactions.map(m => m.id);
         console.log(`Fetched ${oldTransactionsIds.length} old transactions from GSheets.`);
     } catch (e) {
         console.log(`Error fetching old transactions: ${JSON.stringify(e)}`);
         return 0;
     }
-    var newTransactions = transactions.filter(t => oldTransactionsIds.indexOf(t.id) == -1);
+    var newTransactions = transactions.filter(t => oldTransactionsIds.indexOf(t.id) === -1);
 
     if (newTransactions.length > 0) {
         // insert new transactions into google sheet
@@ -97,7 +97,6 @@ function getNewTransaction(plaidTransaction) {
     return {
         "id": plaidTransaction.transaction_id,
         "account": plaidTransaction.account,
-        "owner": plaidTransaction.account_owner ? util.toTitleCase(plaidTransaction.account_owner.split(' ')[0]) : '',
         "date": plaidTransaction.date,
         "name": util.toTitleCase(plaidTransaction.name),
         "category_primary": plaidTransaction.category ? plaidTransaction.category[0] : '',
