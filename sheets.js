@@ -4,7 +4,7 @@
 
 'use strict';
 
-var google = require('googleapis');
+var { google } = require("googleapis");
 var sheets = google.sheets('v4');
 
 var config = require('./config.json');
@@ -21,7 +21,7 @@ async function getRows(start, end) {
                 reject(e);
             }
             else {
-                resolve(response.values || []);
+                resolve(response.data?.values || []);
             }
         });
     });
