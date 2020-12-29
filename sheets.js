@@ -21,7 +21,7 @@ async function getRows(start, end) {
                 reject(e);
             }
             else {
-                resolve(response.data?.values || []);
+                resolve(response.data.values || []);
             }
         });
     });
