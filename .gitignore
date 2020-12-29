@@ -3,3 +3,5 @@ secrets/
 instructions.txt
 config.json
 mintlite-secrets.zip
+.DS_Store
+.vscode/
