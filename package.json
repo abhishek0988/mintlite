@@ -10,8 +10,9 @@
   },
   "dependencies": {
     "express": "^4.16.2",
-    "googleapis": "^23.0.0",
+    "googleapis": "^39.1.0",
     "moment": "^2.20.1",
+    "node-forge": "^0.10.0",
     "plaid": "^2.2.0"
   },
   "engines": {
