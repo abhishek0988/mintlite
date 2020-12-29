@@ -1,6 +1,5 @@
 node_modules/
 secrets/
-yarn*
 instructions.txt
 config.json
 mintlite-secrets.zip
